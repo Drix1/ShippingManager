@@ -41,8 +41,14 @@ namespace ShippingManager
             if (AppversionNo != latestVersion)
             {
                 //Get All Files from the location
-                Directory.Delete(dirpath, true);
-                Directory.CreateDirectory(dirpath);
+                try
+                {
+                    Directory.Delete(dirpath, true);
+                    Directory.CreateDirectory(dirpath);
+                }
+                catch (Exception)
+                {}
+                
                 try
                 {
                     Directory.CreateDirectory(dirpath + "\\Images");
@@ -93,7 +99,12 @@ namespace ShippingManager
                 File.Move(dirpath + "\\PackingNet.vshost.exe.manifest.txt", dirpath + "\\PackingNet.vshost.exe.manifest");
 
             }
-            System.Diagnostics.Process.Start(dirpath + "\\PackingNet.exe");
+            System.Diagnostics.ProcessStartInfo Shipping = new System.Diagnostics.ProcessStartInfo();
+            Shipping.FileName = dirpath+"\\PackingNet.exe";
+            Shipping.Verb = "runas";
+            Shipping.WorkingDirectory = dirpath;
+            Shipping.UseShellExecute = true;
+            System.Diagnostics.Process.Start(Shipping);
         }
 
         /// <summary>
