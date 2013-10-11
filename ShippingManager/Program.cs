@@ -30,7 +30,7 @@ namespace ShippingManager
 
             string dirpath = Environment.CurrentDirectory + "\\ShippingApp";
 
-            String Url = "http://192.168.5.66:740/";
+            String Url = "http://192.168.1.16/FTPShippingManager/";
             String CopyTOLocation = Environment.CurrentDirectory + "\\ShippingApp\\";
 
             GetallFilesFromHttp.Url = Url;
@@ -59,7 +59,7 @@ namespace ShippingManager
                 }
 
                 ///language Files..
-                String LngUrl = "http://192.168.5.66:740/Language/";
+                String LngUrl = "http://192.168.1.16/FTPShippingManager/Language/";
                 String LngCopyToLocation = CopyTOLocation + "\\Language\\";
                 GetallFilesFromHttp.Url = LngUrl;
                 List<String> LngFiles = new List<string>();
@@ -70,7 +70,7 @@ namespace ShippingManager
                 }
 
                 //Images Dir URL;
-                String ImageUrl = "http://192.168.5.66:740/Images/MEDIA/";
+                String ImageUrl = "http://192.168.1.16/FTPShippingManager/Images/MEDIA/";
                 String ImageCopyToLocation = CopyTOLocation + "\\Images\\MEDIA\\";
                 GetallFilesFromHttp.Url = ImageUrl;
                 List<String> ImgFiles = new List<string>();
@@ -126,7 +126,7 @@ namespace ShippingManager
                 try
                 {
                     File.Move(Environment.CurrentDirectory + "\\" + fileName, CopyToLocation + fileName);
-                    Console.WriteLine(DateTime.Now.ToString("MMM dd, yyyy hh:mm:ss tt") + "Downloading File : " + fileName);
+                    Console.WriteLine(DateTime.Now.ToString("hh:mm:ss tt ") + " Downloading File : " + fileName);
 
                 }
                 catch (Exception)
