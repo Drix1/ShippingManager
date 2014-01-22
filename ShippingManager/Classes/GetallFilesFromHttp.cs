@@ -19,7 +19,6 @@ namespace ShippingManager.Classes
             {
                 return "\\\"([^\"]*)\\\"";
             }
-            throw new NotSupportedException();
         }
         public static List<string> ListDiractory()
         {
